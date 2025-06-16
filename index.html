@@ -5,12 +5,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/styles.css">
+
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png');
     }
     .img-fluid {
       max-width: 100%;
@@ -53,6 +60,12 @@
         <a class="nav-link" id="nav-achievements">Achievements</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" id="nav-blog">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="nav-resources">Resources</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" id="nav-contact">Contact</a>
       </li>
     </ul>
@@ -60,15 +73,12 @@
 </nav>
 
 <!-- Content Sections -->
-
-<!-- Home Section -->
 <section id="home" class="active container mt-5">
   <div class="row">
-    <!-- Left Column: About Me -->
     <div class="col-sm-4">
       <h2>About Me</h2>
       <h5>Photo of me:</h5>
-      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" alt="Preya Patel" class="img-fluid rounded shadow" />
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Preya Patel" class="img-fluid rounded shadow" />
       <p class="mt-3">Hi! I'm a final-year IT student passionate about ux xi design and network security.</p>
       <h3 class="mt-4">Links</h3>
       <ul class="nav nav-pills flex-column">
@@ -79,12 +89,10 @@
           <a class="nav-link" href="https://www.instagram.com/preya_3128/" target="_blank" rel="noopener">Instagram</a>
         </li>
       </ul>
+      <button id="changeTextBtn" class="btn btn-secondary mt-3">Click to change intro text</button>
     </div>
-
-    <!-- Right Column: Projects -->
     <div class="col-sm-8">
       <h2>My Projects</h2>
-
       <div class="card mb-4">
         <img src="project-image1.jpg" class="card-img-top" alt="Project 1" />
         <div class="card-body">
@@ -93,7 +101,6 @@
           <a href="#" class="btn btn-primary">View Project</a>
         </div>
       </div>
-
       <div class="card">
         <img src="project-image2.jpg" class="card-img-top" alt="Project 2" />
         <div class="card-body">
@@ -106,22 +113,39 @@
   </div>
 </section>
 
-<!-- Achievements Section -->
 <section id="achievements" class="container mt-5">
   <h1>My Achievements</h1>
-
   <div class="mt-4">
     <h3>State Level Cooking Competition</h3>
     <p>Participated and secured top 3 positions in state level cooking competitions.</p>
   </div>
-
   <div class="mt-4">
     <h3>Google UX Design Course</h3>
     <p>Completed the Google UX Design Professional Certificate course.</p>
   </div>
 </section>
 
-<!-- Contact Section -->
+<section id="blog" class="container mt-5">
+  <h1>Dev Life Blog</h1>
+  <article>
+    <h5>Day 1: Starting my Dev Journey</h5>
+    <p>Today I created my first HTML page and deployed it using GitHub Pages!</p>
+  </article>
+  <article>
+    <h5>Day 2: JavaScript Exploration</h5>
+    <p>I learned how to manipulate the DOM and add interactive features to my webpage.</p>
+  </article>
+</section>
+
+<section id="resources" class="container mt-5">
+  <h1>Developer Resources</h1>
+  <ul>
+    <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+    <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+    <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+  </ul>
+</section>
+
 <section id="contact" class="container mt-5 text-center">
   <h1>Contact Me</h1>
   <p>Phone: <a href="tel:3358972031" class="text-decoration-none">335-897-2031</a></p>
@@ -132,55 +156,34 @@
   <p>Made with ❤️ by Preya Patel</p>
 </footer>
 
-<!-- Bootstrap 5 JS -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-  // Navigation link references
-  const navHome = document.getElementById('nav-home');
-  const navAchievements = document.getElementById('nav-achievements');
-  const navContact = document.getElementById('nav-contact');
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("Dev mode on: Welcome to Preya's Profile!");
+    document.cookie = "visitorName=Preya; path=/";
 
-  // Sections
-  const sectionHome = document.getElementById('home');
-  const sectionAchievements = document.getElementById('achievements');
-  const sectionContact = document.getElementById('contact');
+    document.getElementById('changeTextBtn').addEventListener('click', function () {
+      document.querySelector("#home p").textContent = "Thank you for visiting my profile!";
+    });
 
-  // Function to hide all sections
-  function hideAllSections() {
-    sectionHome.classList.remove('active');
-    sectionAchievements.classList.remove('active');
-    sectionContact.classList.remove('active');
-  }
+    const navLinks = {
+      "nav-home": "home",
+      "nav-achievements": "achievements",
+      "nav-blog": "blog",
+      "nav-resources": "resources",
+      "nav-contact": "contact"
+    };
 
-  // Function to remove active class from nav links
-  function clearActiveNav() {
-    navHome.classList.remove('active');
-    navAchievements.classList.remove('active');
-    navContact.classList.remove('active');
-  }
-
-  navHome.addEventListener('click', () => {
-    hideAllSections();
-    clearActiveNav();
-    sectionHome.classList.add('active');
-    navHome.classList.add('active');
-  });
-
-  navAchievements.addEventListener('click', () => {
-    hideAllSections();
-    clearActiveNav();
-    sectionAchievements.classList.add('active');
-    navAchievements.classList.add('active');
-  });
-
-  navContact.addEventListener('click', () => {
-    hideAllSections();
-    clearActiveNav();
-    sectionContact.classList.add('active');
-    navContact.classList.add('active');
+    Object.keys(navLinks).forEach(id => {
+      document.getElementById(id).addEventListener("click", () => {
+        Object.values(navLinks).forEach(sec => document.getElementById(sec).classList.remove("active"));
+        Object.keys(navLinks).forEach(nid => document.getElementById(nid).classList.remove("active"));
+        document.getElementById(navLinks[id]).classList.add("active");
+        document.getElementById(id).classList.add("active");
+      });
+    });
   });
 </script>
-
 </body>
 </html>
