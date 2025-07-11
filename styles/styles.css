@@ -1,0 +1,32 @@
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Dev mode on: Welcome to Preya's Profile!");
+  document.cookie = "visitorName=Preya; path=/";
+
+  document.getElementById('changeTextBtn').addEventListener('click', function () {
+    document.querySelector("#home p").textContent = "Thank you for visiting my profile!";
+  });
+
+  const navLinks = {
+    "nav-home": "home",
+    "nav-achievements": "achievements",
+    "nav-blog": "blog",
+    "nav-resources": "resources",
+    "nav-contact": "contact"
+  };
+
+  Object.keys(navLinks).forEach(id => {
+    document.getElementById(id).addEventListener("click", () => {
+      // Remove active from all sections and nav links
+      Object.values(navLinks).forEach(secId => {
+        document.getElementById(secId).classList.remove("active");
+      });
+      Object.keys(navLinks).forEach(navId => {
+        document.getElementById(navId).classList.remove("active");
+      });
+      // Add active to clicked nav and corresponding section
+      document.getElementById(navLinks[id]).classList.add("active");
+      document.getElementById(id).classList.add("active");
+    });
+  });
+});
+
