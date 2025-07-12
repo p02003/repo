@@ -14,8 +14,37 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles/styles.css" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .img-fluid {
+      max-width: 100%;
+      height: auto;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px 0;
+      background-color: #212529;
+      color: white;
+      text-align: center;
+    }
+
+    .nav-link {
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
@@ -38,9 +67,7 @@
     </div>
   </nav>
 
-  <!-- Sections -->
-
-  <!-- Home -->
+  <!-- Home Section -->
   <section id="home" class="active container mt-5">
     <div class="row">
       <div class="col-md-4">
@@ -60,14 +87,29 @@
         <div class="row g-4">
 
           <!-- Project 1: Super Game -->
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="card shadow-sm text-center">
-              <img src="imgs/superCoolGamePic.jpg" alt="Super Game Screenshot" class="card-img-top img-fluid" />
+              <img src="imgs/superCoolGamePic.jpg" alt="Super Game Screenshot"
+                   class="card-img-top img-fluid rounded"
+                   style="max-height: 200px; object-fit: cover;" />
               <div class="card-body">
-                <h5 class="card-title mt-2">Super Game!</h5>
+                <h5 class="card-title">Super Game!</h5>
                 <p class="card-text">A fun emoji matching memory game.</p>
-                <a href="https://p02003.github.io/emoji-game/" target="_blank" class="btn btn-primary mb-2">🎮 Play SuperGame!</a><br />
+                <a href="https://p02003.github.io/emoji-game/" target="_blank" class="btn btn-primary mb-2">🎮 Play Game</a><br />
                 <a href="https://github.com/p02003/emoji-game" target="_blank" class="btn btn-outline-secondary">💻 Source Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Python Script -->
+          <div class="col-md-6">
+            <div class="card shadow-sm text-center">
+              <img src="project-image2.jpg" class="card-img-top img-fluid" alt="Project 2 Image"
+                   style="max-height: 200px; object-fit: cover;" />
+              <div class="card-body">
+                <h5 class="card-title">Python Script</h5>
+                <p class="card-text">A Python tool that analyzes networks and identifies vulnerabilities.</p>
+                <a href="#" class="btn btn-primary mb-2">View Project</a>
               </div>
             </div>
           </div>
@@ -114,17 +156,39 @@
   </section>
 
   <!-- Footer -->
-  <footer class="mt-5 p-3 text-center bg-dark text-white">
+  <footer>
     <p>
-      © 2025 Preya Patel |
-      <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fp02003.github.io%2Frepo%2F" class="text-warning" target="_blank">Check HTML Validity</a> |
-      <a href="https://wave.webaim.org/report#/https://p02003.github.io/repo/" class="text-info" target="_blank">Check Accessibility</a>
+      © 2025 Preya Patel | 
+      <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fp02003.github.io%2Frepo%2F" class="text-warning" target="_blank">Nu Validator</a> | 
+      <a href="https://wave.webaim.org/report#/https://p02003.github.io/repo/" class="text-info" target="_blank">WAVE Accessibility</a>
     </p>
   </footer>
 
-  <!-- Bootstrap JS + Script -->
+  <!-- Bootstrap JS + Your Script -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="scripts/scripts.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navLinks = {
+        "nav-home": "home",
+        "nav-achievements": "achievements",
+        "nav-blog": "blog",
+        "nav-resources": "resources",
+        "nav-contact": "contact"
+      };
+
+      Object.keys(navLinks).forEach(id => {
+        document.getElementById(id).addEventListener("click", () => {
+          Object.values(navLinks).forEach(sec => document.getElementById(sec).classList.remove("active"));
+          Object.keys(navLinks).forEach(nid => document.getElementById(nid).classList.remove("active"));
+          document.getElementById(navLinks[id]).classList.add("active");
+          document.getElementById(id).classList.add("active");
+        });
+      });
+
+      document.getElementById('changeTextBtn').addEventListener('click', function () {
+        document.querySelector("#home p").textContent = "Thanks for visiting my Dev Profile!";
+      });
+    });
+  </script>
 </body>
 </html>
-
