@@ -1,31 +1,29 @@
-body {
-  font-family: 'Roboto', sans-serif;
-  background: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png');
-  margin: 0;
-  padding: 0;
-}
+document.addEventListener("DOMContentLoaded", function () {
+  // Change welcome text
+  document.getElementById('changeTextBtn').addEventListener('click', function () {
+    document.querySelector("#home p").textContent = "Thanks for checking out my dev profile!";
+  });
 
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-}
+  // Nav click functionality
+  const navMap = {
+    "nav-home": "home",
+    "nav-achievements": "achievements",
+    "nav-blog": "blog",
+    "nav-resources": "resources",
+    "nav-contact": "contact"
+  };
 
-.nav-link {
-  cursor: pointer;
-}
+  Object.keys(navMap).forEach(navId => {
+    document.getElementById(navId).addEventListener("click", () => {
+      Object.values(navMap).forEach(secId => {
+        document.getElementById(secId).classList.remove("active");
+      });
+      Object.keys(navMap).forEach(id => {
+        document.getElementById(id).classList.remove("active");
+      });
 
-section {
-  display: none;
-}
-
-section.active {
-  display: block;
-}
-
-footer {
-  margin-top: 40px;
-  padding: 20px 0;
-  background-color: #212529;
-  color: white;
-  text-align: center;
-}
+      document.getElementById(navMap[navId]).classList.add("active");
+      document.getElementById(navId).classList.add("active");
+    });
+  });
+});
