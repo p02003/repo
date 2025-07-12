@@ -11,218 +11,125 @@
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
 
-  <!-- Jumbotron Header -->
+  <!-- Jumbotron -->
   <div class="p-5 bg-primary text-white text-center">
     <h1>Welcome to My Dev Profile</h1>
-    <p>I'm Preya Patel, a final-year IT student passionate about cybersecurity and network security.</p>
+    <p>I'm Preya Patel, a final-year IT student passionate about cybersecurity and UX design.</p>
   </div>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" id="nav-home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="nav-achievements">Achievements</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="nav-blog">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="nav-resources">Resources</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="nav-contact">Contact</a>
-        </li>
+        <li class="nav-item"><a class="nav-link active" id="nav-home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" id="nav-achievements">Achievements</a></li>
+        <li class="nav-item"><a class="nav-link" id="nav-blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" id="nav-resources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link" id="nav-contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Content Sections -->
+  <!-- Sections -->
+
+  <!-- Home -->
   <section id="home" class="active container mt-5">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-md-4">
         <h2>About Me</h2>
-        <h5>Photo of me:</h5>
-        <img
-          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"
-          alt="Preya Patel"
-          class="img-fluid rounded shadow"
-        />
-        <p class="mt-3">
-          Hi! I'm a final-year IT student passionate about ux xi design and network security.
-        </p>
-        <h3 class="mt-4">Links</h3>
-        <ul class="nav nav-pills flex-column">
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="https://github.com/p02003"
-              target="_blank"
-              rel="noopener"
-              >GitHub</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link"
-              href="https://www.instagram.com/preya_3128/"
-              target="_blank"
-              rel="noopener"
-              >Instagram</a
-            >
-          </li>
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Preya Patel" class="img-fluid rounded shadow" />
+        <p class="mt-3">Hi! I'm a final-year IT student who loves building apps and solving security problems.</p>
+        <h4 class="mt-4">Links</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="https://github.com/p02003" target="_blank">GitHub</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/preya_3128/" target="_blank">Instagram</a></li>
         </ul>
-        <button id="changeTextBtn" class="btn btn-secondary mt-3">
-          Click to change intro text
-        </button>
+        <button id="changeTextBtn" class="btn btn-secondary mt-3">Change Text</button>
       </div>
-      <div class="col-sm-8">
-        <h2>My Projects</h2>
 
-        <div class="row">
-          <!-- Project 1: Emoji Matching Game -->
-          <div class="col-md-12 mb-4">
-            <div class="card shadow-sm" style="max-width: 700px;">
-              <div class="row g-0 align-items-center">
-                <div class="col-md-5">
-                  <img
-                    src="imgs/superCoolGamePic.jpg"
-                    class="img-fluid rounded-start"
-                    alt="Emoji Matching Game Screenshot"
-                  />
-                </div>
-                <div class="col-md-7">
-                  <div class="card-body d-flex flex-column h-100">
-                    <h5 class="card-title">Emoji Matching Game</h5>
-                    <p class="card-text flex-grow-1">
-                      A fun emoji matching game to test your memory skills.
-                    </p>
-                    <div class="mt-auto">
-                      <a
-                        href="https://p02003.github.io/emoji-game/"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-primary me-2"
-                        >Play Game</a
-                      >
-                      <a
-                        href="https://github.com/p02003/emoji-game"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-outline-secondary"
-                        >Source Code</a
-                      >
-                    </div>
-                  </div>
-                </div>
+      <div class="col-md-8">
+        <h2 class="text-primary fw-bold"><i class="bi bi-lightbulb"></i> Projects</h2>
+        <div class="row g-4">
+
+          <!-- Super Game Card -->
+          <div class="col-md-6">
+            <div class="card shadow-sm text-center">
+              <div class="card-body">
+                <i class="bi bi-emoji-smile fs-1 text-info"></i>
+                <h5 class="card-title mt-2">Super Game!</h5>
+                <p class="card-text">A fun memory matching game with emojis.</p>
+                <a href="https://p02003.github.io/emoji-game/" target="_blank" class="btn btn-primary mb-2">🎮 Play SuperGame!</a><br>
+                <a href="https://github.com/p02003/emoji-game" target="_blank" class="btn btn-outline-secondary">💻 Source Code</a>
               </div>
             </div>
           </div>
 
-          <!-- Project 2: Python Script (existing, styled similarly) -->
-          <div class="col-md-12 mb-4">
-            <div class="card shadow-sm" style="max-width: 700px;">
-              <div class="row g-0 align-items-center">
-                <div class="col-md-5">
-                  <img
-                    src="project-image2.jpg"
-                    class="img-fluid rounded-start"
-                    alt="Project 2 Screenshot"
-                  />
-                </div>
-                <div class="col-md-7">
-                  <div class="card-body d-flex flex-column h-100">
-                    <h5 class="card-title">Project 2: Python Script</h5>
-                    <p class="card-text flex-grow-1">
-                      A Python script for network analysis and vulnerability detection.
-                    </p>
-                    <div class="mt-auto">
-                      <a href="#" class="btn btn-primary">View Project</a>
-                    </div>
-                  </div>
-                </div>
+          <!-- Project 2 -->
+          <div class="col-md-6">
+            <div class="card shadow-sm text-center">
+              <div class="card-body">
+                <i class="bi bi-lightbulb fs-1 text-secondary"></i>
+                <h5 class="card-title mt-2">Project 2</h5>
+                <p class="card-text">A Java banking app focused on network security.</p>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Link to this profile repo source code -->
-        <div class="mt-3">
-          <a
-            href="https://github.com/p02003/repo"
-            target="_blank"
-            rel="noopener"
-            class="text-decoration-none"
-          >
-            <i class="bi bi-code-slash"></i> View Source Code for This Profile
-          </a>
         </div>
+        <p class="mt-3"><a href="https://github.com/p02003/repo" target="_blank">📂 Source code for this profile</a></p>
       </div>
     </div>
   </section>
 
+  <!-- Achievements -->
   <section id="achievements" class="container mt-5">
     <h1>My Achievements</h1>
-    <div class="mt-4">
-      <h3>State Level Cooking Competition</h3>
-      <p>
-        Participated and secured top 3 positions in state level cooking competitions.
-      </p>
-    </div>
-    <div class="mt-4">
-      <h3>Google UX Design Course</h3>
-      <p>Completed the Google UX Design Professional Certificate course.</p>
-    </div>
+    <h4>🏆 State Level Cooking Competition</h4>
+    <p>Secured top 3 positions in a state-wide culinary competition.</p>
+    <h4>📘 Google UX Design Certificate</h4>
+    <p>Completed Google's Professional UX Design training course.</p>
   </section>
 
+  <!-- Blog -->
   <section id="blog" class="container mt-5">
     <h1>Dev Life Blog</h1>
-    <article>
-      <h5>Day 1: Starting my Dev Journey</h5>
-      <p>Today I created my first HTML page and deployed it using GitHub Pages!</p>
-    </article>
-    <article>
-      <h5>Day 2: JavaScript Exploration</h5>
-      <p>I learned how to manipulate the DOM and add interactive features to my webpage.</p>
-    </article>
+    <h5>Day 1: Starting My Journey</h5>
+    <p>Created and deployed my first website on GitHub Pages.</p>
+    <h5>Day 2: JS DOM Fun</h5>
+    <p>Learned JavaScript basics and made my pages interactive!</p>
   </section>
 
+  <!-- Resources -->
   <section id="resources" class="container mt-5">
-    <h1>Developer Resources</h1>
+    <h1><i class="bi bi-link-45deg"></i> Resources</h1>
     <ul>
       <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+      <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap Docs</a></li>
       <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
-      <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></li>
     </ul>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="container mt-5 text-center">
     <h1>Contact Me</h1>
-    <p>
-      Phone: <a href="tel:3358972031" class="text-decoration-none">335-897-2031</a>
-    </p>
+    <p>Email: preya@example.com</p>
+    <p>Phone: <a href="tel:3358972031">335-897-2031</a></p>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="mt-5 p-3 text-center bg-dark text-white">
     <p>
-      Made with ❤️ by Preya Patel
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      <a href="https://p02003.github.io/repo/" target="_blank" rel="noopener" class="text-white text-decoration-none"
-        >Nu</a
-      >
-      &nbsp;|&nbsp;
-      <a href="https://p02003.github.io/repo/" target="_blank" rel="noopener" class="text-white text-decoration-none"
-        >WAVE</a
-      >
+      © 2025 Preya Patel |
+      <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fp02003.github.io%2Frepo%2F" class="text-warning" target="_blank">Check HTML Validity</a> |
+      <a href="https://wave.webaim.org/report#/https://p02003.github.io/repo/" class="text-info" target="_blank">Check Accessibility</a>
     </p>
   </footer>
 
@@ -231,3 +138,4 @@
   <script src="scripts/scripts.js"></script>
 </body>
 </html>
+
