@@ -1,23 +1,22 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const devBlogList = document.getElementById('devBlogList');
+// scripts/devblog.js
 
-  fetch('https://p02003.github.io/blog-data/blogdata.json')
-    .then(res => res.json())
-    .then(data => {
-      data.forEach(post => {
-        const div = document.createElement('div');
-        div.className = "border p-3 mb-4 rounded bg-white shadow-sm";
-        div.innerHTML = `
-          <h4>${post.title}</h4>
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("https://p02003.github.io/blog-data/data.json")
+    .then((response) => response.json())
+    .then((blogPosts) => {
+      const blogList = document.getElementById("devBlogList");
+      blogPosts.forEach((post) => {
+        const postEl = document.createElement("div");
+        postEl.classList.add("card", "mb-3", "p-3");
+        postEl.innerHTML = `
+          <h5>${post.title}</h5>
           <small class="text-muted">${post.date}</small>
           <p>${post.content}</p>
-          <p><strong>Tags:</strong> ${post.tags.join(', ')}</p>
         `;
-        devBlogList.appendChild(div);
+        blogList.appendChild(postEl);
       });
     })
-    .catch(err => {
-      devBlogList.innerHTML = "<p class='text-danger'>Failed to load blog posts. Please try again later.</p>";
-      console.error("Blog data fetch error:", err);
+    .catch((err) => {
+      console.error("Error loading blog data:", err);
     });
 });
