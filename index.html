@@ -18,7 +18,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
   <!-- Header -->
   <div class="p-5 bg-primary text-white text-center">
     <h1>Welcome to My Dev Profile</h1>
@@ -56,13 +55,9 @@
       <div class="col-md-8">
         <h2 class="text-primary fw-bold"><i class="bi bi-lightbulb"></i> Projects</h2>
         <div class="row g-4">
-
-          <!-- Project 1: Super Game -->
           <div class="col-md-6">
             <div class="card shadow-sm text-center">
-              <img src="imgs/superCoolGamePic.jpg" alt="Super Game Screenshot"
-                   class="card-img-top img-fluid rounded"
-                   style="max-height: 200px; object-fit: cover;" />
+              <img src="imgs/superCoolGamePic.jpg" alt="Super Game Screenshot" class="card-img-top img-fluid rounded" style="max-height: 200px; object-fit: cover;" />
               <div class="card-body">
                 <h5 class="card-title">Super Game!</h5>
                 <p class="card-text">A fun emoji matching memory game.</p>
@@ -71,20 +66,15 @@
               </div>
             </div>
           </div>
-
-          <!-- Project 2: Simple Style -->
           <div class="col-md-6">
             <div class="card shadow-sm text-center">
-              <img src="project-image2.jpg" class="card-img-top img-fluid"
-                   alt="Project 2 Image"
-                   style="max-height: 200px; object-fit: cover;" />
+              <img src="project-image2.jpg" class="card-img-top img-fluid" alt="Project 2 Image" style="max-height: 200px; object-fit: cover;" />
               <div class="card-body">
                 <h5 class="card-title">💡 Project 2</h5>
                 <a href="#" class="btn btn-primary">View</a>
               </div>
             </div>
           </div>
-
         </div>
         <p class="mt-4"><a href="https://github.com/p02003/repo" target="_blank">📂 Source code for this dev profile</a></p>
       </div>
@@ -103,10 +93,8 @@
   <!-- Blog -->
   <section id="blog" class="container mt-5">
     <h1>Dev Life Blog</h1>
-    <div id="blogPosts">
-      <p>Loading blog posts...</p>
-    </div>
-    <button id="openBlogAdminBtn" class="btn btn-primary mt-3">Open Blog Admin</button>
+    <div id="blogPosts"></div>
+    <a href="https://p02003.github.io/blog-admin/" class="btn btn-primary mt-3" target="_blank">Go to Blog Admin</a>
   </section>
 
   <!-- Resources -->
@@ -127,7 +115,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="bg-dark text-white text-center py-3">
     <p>
       © 2025 Preya Patel |
       <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fp02003.github.io%2Frepo%2F" class="text-warning" target="_blank">Nu Validator</a> |
@@ -135,10 +123,9 @@
     </p>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom JS -->
   <script src="scripts.js"></script>
+  <script src="scripts/devblog.js"></script>
 </body>
 </html>
