@@ -1,18 +1,15 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
-}
-
-section {
-  display: none;
-}
-
-section.active {
-  display: block;
+  background: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png');
+  background-attachment: fixed;
 }
 
 .nav-link {
   cursor: pointer;
+}
+
+section {
+  /* We control visibility via JS */
 }
 
 footer a {
@@ -22,4 +19,13 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Blog post styling in blog section */
+#blogPosts div {
+  background-color: white;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
