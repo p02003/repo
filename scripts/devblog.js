@@ -1,22 +1,45 @@
-// scripts/devblog.js
+document.addEventListener("DOMContentLoaded", () => {
+  const blogPostsContainer = document.getElementById("blogPosts");
+  const blogAdminBtn = document.getElementById("openBlogAdminBtn");
 
-document.addEventListener("DOMContentLoaded", function () {
-  fetch("https://p02003.github.io/blog-data/data.json")
-    .then((response) => response.json())
-    .then((blogPosts) => {
-      const blogList = document.getElementById("devBlogList");
-      blogPosts.forEach((post) => {
-        const postEl = document.createElement("div");
-        postEl.classList.add("card", "mb-3", "p-3");
-        postEl.innerHTML = `
-          <h5>${post.title}</h5>
-          <small class="text-muted">${post.date}</small>
-          <p>${post.content}</p>
-        `;
-        blogList.appendChild(postEl);
+  // Fetch blog data JSON and render posts dynamically
+  fetch("https://p02003.github.io/blog-data/blogdata.json")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      }
+      return response.json();
+    })
+    .then(data => {
+      blogPostsContainer.innerHTML = ""; // Clear container
+
+      data.forEach(post => {
+        const postDiv = document.createElement("div");
+        postDiv.classList.add("mb-4");
+
+        const title = document.createElement("h5");
+        title.textContent = post.title;
+
+        const date = document.createElement("small");
+        date.textContent = post.date;
+        date.classList.add("text-muted");
+
+        const content = document.createElement("p");
+        content.textContent = post.content;
+
+        postDiv.appendChild(title);
+        postDiv.appendChild(date);
+        postDiv.appendChild(content);
+
+        blogPostsContainer.appendChild(postDiv);
       });
     })
-    .catch((err) => {
-      console.error("Error loading blog data:", err);
+    .catch(error => {
+      blogPostsContainer.innerHTML = `<p class="text-danger">Error loading blog posts: ${error.message}</p>`;
     });
+
+  // Open Blog Admin page in new tab
+  blogAdminBtn.addEventListener("click", () => {
+    window.open("https://p02003.github.io/blog-admin/", "_blank");
+  });
 });
