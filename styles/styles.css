@@ -25,11 +25,22 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Optional: styling for blog posts */
-#blogPosts > div {
-  background-color: white;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+/* ====== Blog Section Dynamic Posts Styling ====== */
+#devBlogList div {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#devBlogList h4 {
+  color: #007bff; /* Bootstrap primary blue */
+  margin-bottom: 5px;
+}
+
+#devBlogList small {
+  font-style: italic;
+  color: #555;
 }
