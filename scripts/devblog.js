@@ -1,33 +1,43 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const blogPostsContainer = document.getElementById("blogPosts");
-  if (!blogPostsContainer) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const blogContainer = document.getElementById("blogPosts");
 
   fetch("https://p02003.github.io/blog-data/blogdata.json")
     .then(response => {
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error("Network response was not OK");
       }
       return response.json();
     })
     .then(data => {
-      // Clear container
-      blogPostsContainer.innerHTML = "";
+      if (!Array.isArray(data) || data.length === 0) {
+        blogContainer.innerHTML = "<p>No blog posts available.</p>";
+        return;
+      }
 
-      // Loop through blog posts and create HTML for each
+      blogContainer.innerHTML = ""; // clear existing
+
       data.forEach(post => {
-        const postElem = document.createElement("article");
-        postElem.classList.add("mb-4");
+        // Create post elements
+        const postEl = document.createElement("div");
+        postEl.classList.add("mb-4", "border", "p-3", "rounded", "shadow-sm", "bg-white");
 
-        postElem.innerHTML = `
-          <h5>${post.title} <small class="text-muted">(${post.date})</small></h5>
-          <p>${post.content}</p>
-        `;
+        const title = document.createElement("h4");
+        title.textContent = post.title || "Untitled";
 
-        blogPostsContainer.appendChild(postElem);
+        const date = document.createElement("small");
+        date.textContent = post.date || "";
+
+        const content = document.createElement("p");
+        content.textContent = post.content || "";
+
+        postEl.appendChild(title);
+        postEl.appendChild(date);
+        postEl.appendChild(content);
+
+        blogContainer.appendChild(postEl);
       });
     })
     .catch(error => {
-      blogPostsContainer.innerHTML = `<p class="text-danger">Failed to load blog posts.</p>`;
-      console.error("Fetching blog data failed:", error);
+      blogContainer.innerHTML = `<p>Error loading blog posts: ${error.message}</p>`;
     });
 });
