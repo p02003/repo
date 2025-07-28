@@ -1,23 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
   const blogPostsContainer = document.getElementById("blogPosts");
+  if (!blogPostsContainer) return;
 
   fetch("https://p02003.github.io/blog-data/blogdata.json")
-    .then((response) => response.json())
-    .then((data) => {
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Clear container
       blogPostsContainer.innerHTML = "";
-      data.forEach((post) => {
-        const postElement = document.createElement("div");
-        postElement.classList.add("mb-4", "p-3", "border", "rounded", "bg-light");
-        postElement.innerHTML = `
-          <h4>${post.title}</h4>
-          <p><em>${post.date}</em></p>
+
+      // Loop through blog posts and create HTML for each
+      data.forEach(post => {
+        const postElem = document.createElement("article");
+        postElem.classList.add("mb-4");
+
+        postElem.innerHTML = `
+          <h5>${post.title} <small class="text-muted">(${post.date})</small></h5>
           <p>${post.content}</p>
         `;
-        blogPostsContainer.appendChild(postElement);
+
+        blogPostsContainer.appendChild(postElem);
       });
     })
-    .catch((error) => {
-      blogPostsContainer.innerHTML = "<p>Error loading blog posts.</p>";
-      console.error("Error:", error);
+    .catch(error => {
+      blogPostsContainer.innerHTML = `<p class="text-danger">Failed to load blog posts.</p>`;
+      console.error("Fetching blog data failed:", error);
     });
 });
