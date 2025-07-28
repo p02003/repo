@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Navigation mapping
   const navMap = {
     "nav-home": "home",
     "nav-achievements": "achievements",
@@ -8,15 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
     "nav-contact": "contact"
   };
 
-  // Show only the selected section, hide others
   function showSection(sectionId) {
-    Object.values(navMap).forEach(secId => {
-      document.getElementById(secId).style.display = "none";
+    Object.values(navMap).forEach(sec => {
+      document.getElementById(sec).style.display = "none";
     });
     document.getElementById(sectionId).style.display = "block";
   }
 
-  // Update active nav link
   function setActiveNav(navId) {
     Object.keys(navMap).forEach(id => {
       document.getElementById(id).classList.remove("active");
@@ -24,27 +21,26 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById(navId).classList.add("active");
   }
 
-  // Set initial visible section
+  // Initialize page
   showSection("home");
   setActiveNav("nav-home");
 
-  // Add click event listeners for nav items
+  // Attach event handlers to nav links
   Object.keys(navMap).forEach(navId => {
-    document.getElementById(navId).addEventListener("click", (e) => {
-      e.preventDefault();
+    document.getElementById(navId).addEventListener("click", (event) => {
+      event.preventDefault();
       showSection(navMap[navId]);
       setActiveNav(navId);
     });
   });
 
-  // Change Text Button on Home
-  document.getElementById('changeTextBtn').addEventListener('click', function () {
+  // Change Text Button on Home section
+  document.getElementById("changeTextBtn").addEventListener("click", () => {
     document.querySelector("#home p").textContent = "Thanks for checking out my dev profile!";
   });
 
   // Blog Admin button
-  const openBlogBtn = document.getElementById("openBlogAdminBtn");
-  openBlogBtn.addEventListener("click", () => {
+  document.getElementById("openBlogAdminBtn").addEventListener("click", () => {
     window.open("https://p02003.github.io/blog-admin/", "_blank");
   });
 });
