@@ -14,37 +14,7 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
-    }
-
-    .img-fluid {
-      max-width: 100%;
-      height: auto;
-    }
-
-    section {
-      display: none;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 20px 0;
-      background-color: #212529;
-      color: white;
-      text-align: center;
-    }
-
-    .nav-link {
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -129,13 +99,17 @@
     <p>Completed Google's Professional UX Design training course.</p>
   </section>
 
-  <!-- Blog Section UPDATED FOR STEP 4 -->
+  <!-- Blog -->
   <section id="blog" class="container mt-5">
-    <h1>📰 Dev Life Blog</h1>
-    <div id="devBlogList" class="mt-4"></div>
-    <a href="https://p02003.github.io/blog-admin" target="_blank" class="btn btn-outline-primary mt-4">
-      ✏️ Go to Blog Admin
-    </a>
+    <h1>Dev Life Blog</h1>
+
+    <div id="blogPosts">
+      <!-- Blog posts will be loaded here dynamically -->
+    </div>
+
+    <button id="openBlogAdminBtn" class="btn btn-primary mt-3">
+      Go to Blog Admin
+    </button>
   </section>
 
   <!-- Resources -->
@@ -164,9 +138,10 @@
     </p>
   </footer>
 
-  <!-- Bootstrap JS + Your Script -->
+  <!-- Bootstrap JS + Your Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="scripts/scripts.js"></script>
-  <script src="scripts/devblog.js"></script>  <!-- Added for Step 4 -->
+  <script src="scripts.js"></script>
+  <script src="scripts/devblog.js"></script>
+
 </body>
 </html>
