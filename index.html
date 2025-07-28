@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
   <!-- Header -->
   <div class="p-5 bg-primary text-white text-center">
     <h1>Welcome to My Dev Profile</h1>
@@ -28,17 +29,17 @@
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="#" id="nav-home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" id="nav-achievements">Achievements</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" id="nav-blog">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" id="nav-resources">Resources</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" id="nav-contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link active" id="nav-home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" id="nav-achievements">Achievements</a></li>
+        <li class="nav-item"><a class="nav-link" id="nav-blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" id="nav-resources">Resources</a></li>
+        <li class="nav-item"><a class="nav-link" id="nav-contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Home Section -->
-  <section id="home" class="container mt-5">
+  <section id="home" class="active container mt-5">
     <div class="row">
       <div class="col-md-4">
         <h2>About Me</h2>
@@ -55,9 +56,13 @@
       <div class="col-md-8">
         <h2 class="text-primary fw-bold"><i class="bi bi-lightbulb"></i> Projects</h2>
         <div class="row g-4">
+
+          <!-- Project 1: Super Game -->
           <div class="col-md-6">
             <div class="card shadow-sm text-center">
-              <img src="imgs/superCoolGamePic.jpg" alt="Super Game Screenshot" class="card-img-top img-fluid rounded" style="max-height: 200px; object-fit: cover;" />
+              <img src="imgs/superCoolGamePic.jpg" alt="Super Game Screenshot"
+                   class="card-img-top img-fluid rounded"
+                   style="max-height: 200px; object-fit: cover;" />
               <div class="card-body">
                 <h5 class="card-title">Super Game!</h5>
                 <p class="card-text">A fun emoji matching memory game.</p>
@@ -66,23 +71,28 @@
               </div>
             </div>
           </div>
+
+          <!-- Project 2: Simple Style -->
           <div class="col-md-6">
             <div class="card shadow-sm text-center">
-              <img src="project-image2.jpg" class="card-img-top img-fluid" alt="Project 2 Image" style="max-height: 200px; object-fit: cover;" />
+              <img src="project-image2.jpg" class="card-img-top img-fluid"
+                   alt="Project 2 Image"
+                   style="max-height: 200px; object-fit: cover;" />
               <div class="card-body">
                 <h5 class="card-title">💡 Project 2</h5>
                 <a href="#" class="btn btn-primary">View</a>
               </div>
             </div>
           </div>
+
         </div>
         <p class="mt-4"><a href="https://github.com/p02003/repo" target="_blank">📂 Source code for this dev profile</a></p>
       </div>
     </div>
   </section>
 
-  <!-- Achievements Section -->
-  <section id="achievements" class="container mt-5" style="display:none;">
+  <!-- Achievements -->
+  <section id="achievements" class="container mt-5">
     <h1>My Achievements</h1>
     <h4>🏆 State Level Cooking Competition</h4>
     <p>Secured top 3 positions in a state-wide culinary competition.</p>
@@ -90,15 +100,17 @@
     <p>Completed Google's Professional UX Design training course.</p>
   </section>
 
-  <!-- Blog Section -->
-  <section id="blog" class="container mt-5" style="display:none;">
+  <!-- Blog -->
+  <section id="blog" class="container mt-5">
     <h1>Dev Life Blog</h1>
-    <div id="blogPosts"></div>
-    <button id="openBlogAdminBtn" class="btn btn-primary mt-3">Go to Blog Admin</button>
+    <div id="blogPosts">
+      <p>Loading blog posts...</p>
+    </div>
+    <button id="openBlogAdminBtn" class="btn btn-primary mt-3">Open Blog Admin</button>
   </section>
 
-  <!-- Resources Section -->
-  <section id="resources" class="container mt-5" style="display:none;">
+  <!-- Resources -->
+  <section id="resources" class="container mt-5">
     <h1><i class="bi bi-link-45deg"></i> Resources</h1>
     <ul>
       <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
@@ -107,15 +119,15 @@
     </ul>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="container mt-5 text-center" style="display:none;">
+  <!-- Contact -->
+  <section id="contact" class="container mt-5 text-center">
     <h1>Contact Me</h1>
     <p>Email: preya@example.com</p>
     <p>Phone: <a href="tel:3358972031">335-897-2031</a></p>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
+  <footer>
     <p>
       © 2025 Preya Patel |
       <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fp02003.github.io%2Frepo%2F" class="text-warning" target="_blank">Nu Validator</a> |
@@ -123,9 +135,10 @@
     </p>
   </footer>
 
-  <!-- Bootstrap JS and Custom Scripts -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
   <script src="scripts.js"></script>
-  <script src="scripts/devblog.js"></script>
 </body>
 </html>
