@@ -4,22 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("https://p02003.github.io/blog-data/blogdata.json")
     .then(response => {
       if (!response.ok) {
-        throw new Error("Network response was not OK");
+        throw new Error("Failed to fetch blog data");
       }
       return response.json();
     })
-    .then(data => {
-      if (!Array.isArray(data) || data.length === 0) {
+    .then(posts => {
+      if (!Array.isArray(posts) || posts.length === 0) {
         blogContainer.innerHTML = "<p>No blog posts available.</p>";
         return;
       }
 
-      blogContainer.innerHTML = ""; // clear existing
+      blogContainer.innerHTML = "";
 
-      data.forEach(post => {
-        // Create post elements
-        const postEl = document.createElement("div");
-        postEl.classList.add("mb-4", "border", "p-3", "rounded", "shadow-sm", "bg-white");
+      posts.forEach(post => {
+        const postDiv = document.createElement("div");
+        postDiv.classList.add("mb-4", "p-3", "border", "rounded", "shadow-sm", "bg-white");
 
         const title = document.createElement("h4");
         title.textContent = post.title || "Untitled";
@@ -30,14 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const content = document.createElement("p");
         content.textContent = post.content || "";
 
-        postEl.appendChild(title);
-        postEl.appendChild(date);
-        postEl.appendChild(content);
+        postDiv.appendChild(title);
+        postDiv.appendChild(date);
+        postDiv.appendChild(content);
 
-        blogContainer.appendChild(postEl);
+        blogContainer.appendChild(postDiv);
       });
     })
-    .catch(error => {
-      blogContainer.innerHTML = `<p>Error loading blog posts: ${error.message}</p>`;
+    .catch(err => {
+      blogContainer.innerHTML = `<p>Error loading blog posts: ${err.message}</p>`;
     });
 });
