@@ -9,7 +9,7 @@ body {
 }
 
 section {
-  /* We control visibility via JS */
+  /* visibility controlled by JS */
 }
 
 footer a {
@@ -21,8 +21,8 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Blog post styling in blog section */
-#blogPosts div {
+/* Blog posts styling */
+#blogPosts > div {
   background-color: white;
   margin-bottom: 1rem;
   padding: 1rem;
