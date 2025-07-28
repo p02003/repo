@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const navLinks = {
+  // Navigation mapping
+  const navMap = {
     "nav-home": "home",
     "nav-achievements": "achievements",
     "nav-blog": "blog",
@@ -7,37 +8,43 @@ document.addEventListener("DOMContentLoaded", function () {
     "nav-contact": "contact"
   };
 
-  // Navigation logic
-  Object.keys(navLinks).forEach(id => {
-    document.getElementById(id).addEventListener("click", function (event) {
-      event.preventDefault();
-      // Hide all sections
-      Object.values(navLinks).forEach(sec => {
-        document.getElementById(sec).style.display = "none";
-      });
-
-      // Remove active class from all nav items
-      Object.keys(navLinks).forEach(nid => {
-        document.getElementById(nid).classList.remove("active");
-      });
-
-      // Show clicked section
-      const sectionId = navLinks[id];
-      document.getElementById(sectionId).style.display = "block";
-      document.getElementById(id).classList.add("active");
+  // Show only the selected section, hide others
+  function showSection(sectionId) {
+    Object.values(navMap).forEach(secId => {
+      document.getElementById(secId).style.display = "none";
     });
-  });
-
-  // Button to change text on homepage
-  document.getElementById("changeTextBtn").addEventListener("click", function () {
-    document.querySelector("#home p").textContent = "Thanks for visiting my Dev Profile!";
-  });
-
-  // Button to open Blog Admin
-  const openBlogBtn = document.getElementById("openBlogAdminBtn");
-  if (openBlogBtn) {
-    openBlogBtn.addEventListener("click", () => {
-      window.open("https://p02003.github.io/blog-admin/", "_blank");
-    });
+    document.getElementById(sectionId).style.display = "block";
   }
+
+  // Update active nav link
+  function setActiveNav(navId) {
+    Object.keys(navMap).forEach(id => {
+      document.getElementById(id).classList.remove("active");
+    });
+    document.getElementById(navId).classList.add("active");
+  }
+
+  // Set initial visible section
+  showSection("home");
+  setActiveNav("nav-home");
+
+  // Add click event listeners for nav items
+  Object.keys(navMap).forEach(navId => {
+    document.getElementById(navId).addEventListener("click", (e) => {
+      e.preventDefault();
+      showSection(navMap[navId]);
+      setActiveNav(navId);
+    });
+  });
+
+  // Change Text Button on Home
+  document.getElementById('changeTextBtn').addEventListener('click', function () {
+    document.querySelector("#home p").textContent = "Thanks for checking out my dev profile!";
+  });
+
+  // Blog Admin button
+  const openBlogBtn = document.getElementById("openBlogAdminBtn");
+  openBlogBtn.addEventListener("click", () => {
+    window.open("https://p02003.github.io/blog-admin/", "_blank");
+  });
 });
