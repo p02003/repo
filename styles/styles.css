@@ -1,11 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png');
-  background-attachment: fixed;
-}
-
-.nav-link {
-  cursor: pointer;
+  background-color: #f4f4f4;
 }
 
 section {
@@ -14,6 +9,10 @@ section {
 
 section.active {
   display: block;
+}
+
+.nav-link {
+  cursor: pointer;
 }
 
 footer a {
