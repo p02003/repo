@@ -1,10 +1,5 @@
+// scripts/scripts.js
 document.addEventListener("DOMContentLoaded", function () {
-  // Change welcome text
-  document.getElementById("changeTextBtn").addEventListener("click", function () {
-    document.querySelector("#home p").textContent = "Thanks for checking out my dev profile!";
-  });
-
-  // Navigation toggle logic
   const navMap = {
     "nav-home": "home",
     "nav-achievements": "achievements",
@@ -25,5 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById(navMap[navId]).classList.add("active");
       document.getElementById(navId).classList.add("active");
     });
+  });
+
+  document.getElementById('changeTextBtn').addEventListener('click', function () {
+    document.querySelector("#home p").textContent = "Thanks for visiting my Dev Profile!";
   });
 });
