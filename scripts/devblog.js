@@ -1,22 +1,24 @@
-// scripts/devblog.js
-
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("https://p02003.github.io/blog-data/data.json")
-    .then((response) => response.json())
-    .then((blogPosts) => {
-      const blogList = document.getElementById("devBlogList");
-      blogPosts.forEach((post) => {
-        const postEl = document.createElement("div");
-        postEl.classList.add("card", "mb-3", "p-3");
-        postEl.innerHTML = `
-          <h5>${post.title}</h5>
+  const blogPostsDiv = document.getElementById("blogPosts");
+  const jsonURL = "https://p02003.github.io/blog-data/blogdata.json";
+
+  fetch(jsonURL)
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(post => {
+        const postDiv = document.createElement("div");
+        postDiv.className = "mb-4 p-3 border rounded bg-light";
+        postDiv.innerHTML = `
+          <h4>${post.title}</h4>
           <small class="text-muted">${post.date}</small>
           <p>${post.content}</p>
+          ${post.tags ? `<p><strong>Tags:</strong> ${post.tags.join(", ")}</p>` : ""}
         `;
-        blogList.appendChild(postEl);
+        blogPostsDiv.appendChild(postDiv);
       });
     })
-    .catch((err) => {
-      console.error("Error loading blog data:", err);
+    .catch(err => {
+      blogPostsDiv.innerHTML = "<p class='text-danger'>Could not load blog posts. Please check your data.</p>";
+      console.error("Error fetching blog data:", err);
     });
 });
