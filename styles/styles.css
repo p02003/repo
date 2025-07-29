@@ -1,3 +1,4 @@
+/* styles/styles.css */
 body {
   font-family: 'Roboto', sans-serif;
   background: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-outline.png');
@@ -14,6 +15,14 @@ section {
 
 section.active {
   display: block;
+}
+
+footer {
+  margin-top: 60px;
+  padding: 20px 0;
+  background-color: #212529;
+  color: white;
+  text-align: center;
 }
 
 footer a {
